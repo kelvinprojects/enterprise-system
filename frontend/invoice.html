@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="css/styles.css">
+  <title>Invoice Management</title>
+</head>
+<body>
+
+<!-- Top Bar with Logo -->
+<div class="top-bar">
+  <img src="uploads/logo.jpg" alt="Mukili Enterprise Logo" class="logo">
+</div>
+
+<div id="sidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="index.html">Dashboard</a>
+    <a href="orders.html">Orders</a>
+    <a href="stock.html">Stock Management</a>
+    <a href="invoice.html">Reports/Invoices</a>
+</div>
+<span class="openbtn" onclick="openNav()">&#9776; Menu</span>
+
+<div class="content">
+  <h1>Invoices</h1>
+
+  <!-- Create Invoice Button -->
+  <button class="create-invoice-btn" onclick="showInvoiceModal()">Create Invoice</button>
+
+  <!-- Modal to Enter Order ID -->
+  <div id="invoiceModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeInvoiceModal()">&times;</span>
+      <h2>Create Invoice</h2>
+      <label for="orderID">Enter Order ID:</label>
+      <input type="text" id="orderID" placeholder="Order ID" required>
+      <button onclick="generateInvoice()">Generate Invoice</button>
+    </div>
+  </div>
+
+  <!-- Search Bar -->
+  <div class="search-container">
+    <input type="text" id="invoiceSearch" placeholder="Search by customer name or date...">
+    <button type="submit"><i class="fa fa-search"></i></button>
+  </div>
+
+  <!-- Invoice List Table -->
+  <table class="invoice-list">
+    <thead>
+      <tr>
+        <th>Customer Name</th>
+        <th>Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="invoiceListBody">
+      <!-- Sample row for demonstration -->
+      <tr>
+        <td>John Doe</td>
+        <td>2024-09-11</td>
+        <td>
+          <button class="action-btn" onclick="printInvoice()">Print</button>
+          <button class="action-btn" onclick="reviewInvoice('John Doe', '2024-09-11')">Review</button>
+          <button class="action-btn" onclick="deleteInvoice('invoiceId123')">Delete</button>
+        </td>
+      </tr>
+      
+    </tbody>
+  </table>
+</div>
+
+<!-- Review Modal for Invoice Details -->
+<div id="reviewModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeReviewModal()">&times;</span>
+    <h2>Invoice Review</h2>
+    <div id="invoiceDetails"></div>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>

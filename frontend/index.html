@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="css/styles.css">
+  <title>Dashboard</title>
+</head>
+<body>
+    
+<!-- Top Bar with Logo -->
+<div class="top-bar">
+  <img src="/uploads/logo.jpg" alt="Mukili Enterprise Logo" class="logo">
+</div>
+<!-- Include the sliding navigation bar -->
+<div id="sidebar" class="sidebar">
+    <!-- Menu contents here -->
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="index.html">Dashboard</a>
+    <a href="orders.html">Orders</a>
+    <a href="stock.html">Stock Management</a>
+    <a href="invoice.html">Reports/Invoices</a>
+  </div>
+  <span class="openbtn" onclick="openNav()">&#9776; Menu</span> 
+
+<div class="content">
+  <h1>Dashboard</h1>
+
+  <div class="overview">
+    <h2>Order Summary</h2>
+    <div class="pie-chart-container">
+      <canvas id="orderChart"></canvas>
+    </div>
+
+    <div class="order-summary">
+      <p>Pending Orders: <span id="pendingOrders">0</span></p>
+      <p>Orders in Queue: <span id="inQueueOrders">0</span></p>
+      <p>Processed Orders: <span id="processedOrders">0</span></p>
+      <p>Completed Orders: <span id="completedOrders">0</span></p>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,387 @@
+/* General Transitions for Smooth Effects */
+* {
+  transition: all 0.3s ease-in-out;
+}
+
+body {
+  background-color: #f0f0f0; /* Light background for contrast */
+  font-family: 'Abel', sans-serif;
+  color: #333; /* Ensure text is visible */
+}
+
+/* Forms Styling */
+form {
+  background-color: maroon;
+  padding: 20px;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 500px;
+  margin: auto;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 10px;
+  background-color: white;
+  color: maroon;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(128, 0, 128, 0.5); /* Purple glow */
+}
+
+input::placeholder, textarea::placeholder {
+  color: #888; /* Lighter placeholder */
+}
+
+button {
+  background-color: maroon;
+  color: cream;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: purple;
+}
+
+/* Dashboard */
+.overview {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pie-chart-container {
+  width: 50%;
+}
+
+/* Orders */
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 50px;
+}
+
+.orders-table th, .orders-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.orders-table th {
+  background-color: maroon;
+  color: cream;
+}
+
+.orders-table th:hover, .orders-table td:hover {
+  background-color: purple;
+  color: cream;
+}
+
+/* Add Order Button */
+.add-order-icon {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  font-size: 50px;
+  background-color: blue;
+  color: cream;
+  border-radius: 50%;
+  padding: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.add-order-icon:hover {
+  background-color: purple;
+  transform: scale(1.1);
+}
+
+/* Popup for Order Details */
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 9;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* Dark overlay */
+}
+
+.popup-content {
+  background-color: maroon;
+  margin: auto;
+  padding: 20px;
+  border-radius: 15px;
+  width: 60%;
+  color: white;
+}
+
+.popup-content select, .popup-content input, .popup-content textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: white;
+  color: maroon;
+}
+
+.popup-content input::placeholder, .popup-content textarea::placeholder {
+  color: #888;
+}
+
+/* Close Button in Popup */
+.close {
+  color: #fff;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover, .close:focus {
+  color: purple;
+}
+
+/* Sidebar */
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: maroon;
+  overflow-x: hidden;
+  transition: width 0.5s ease;
+  padding-top: 60px;
+}
+
+.sidebar.open {
+  width: 250px;
+}
+
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 25px;
+  color: cream;
+  display: block;
+  transition: color 0.3s ease;
+}
+
+.sidebar a:hover {
+  color: purple;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+}
+
+.openbtn {
+  position: flex;
+  top: 60px; 
+  left: 5;
+  font-size: 30px;
+  background-color: maroon;
+  color: beige;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1000; 
+  height: 30px;
+}
+
+.openbtn:hover {
+  background-color: purple;
+}
+
+/* Stock Grid */
+.stock-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Four items per row */
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.stock-item {
+  border-radius: 15px; /* Smooth rounded corners */
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.stock-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.stock-item img {
+  border-radius: 10px;
+  max-width: 100%;
+  height: auto;
+}
+
+.stock-item h3 {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.stock-item p {
+  margin: 5px 0;
+}
+
+.stock-item .price, .stock-item .quantity {
+  font-weight: bold;
+}
+
+/* Top Bar with Enterprise Logo */
+.top-bar {
+  height: 50px;
+  background-color: maroon;
+  padding: 10px;
+  text-align: left;
+}
+
+.logo {
+  height: 50px;
+}
+
+/* Create Invoice Button */
+.create-invoice-btn {
+  background-color: maroon;
+  color: cream;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.create-invoice-btn:hover {
+  background-color: purple;
+}
+
+/* Search Bar */
+.search-container {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+#invoiceSearch {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.search-container button {
+  padding: 10px;
+  background-color: purple;
+  border: none;
+  color: cream;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.search-container button i {
+  font-size: 16px;
+}
+
+/* Invoice List Table */
+.invoice-list {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.invoice-list th, .invoice-list td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.invoice-list th {
+  background-color: maroon;
+  color: cream;
+}
+
+.invoice-list th:hover, .invoice-list td:hover {
+  background-color: purple;
+}
+
+/* Action Buttons */
+.action-btn {
+  background-color: maroon;
+  color: cream;
+  padding: 5px 10px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.action-btn:hover {
+  background-color: purple;
+}
+
+/* Modal for Invoice Review */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: maroon;
+  margin: 15% auto;
+  padding: 20px;
+  border-radius: 20px;
+  width: 60%;
+  max-width: 500px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+.modal-content #newOrderForm{
+  width: 80%;
+}
+.modal-content #newOrderForm button {
+  border-radius: 10px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Close Modal */
+.close {
+  color: #fff;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}

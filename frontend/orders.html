@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Top Bar with Logo -->
+  <div class="top-bar">
+    <img src="uploads/logo.jpg" alt="Mukili Enterprise Logo" class="logo">
+  </div>
+
+  <!-- Include the sliding navigation bar -->
+  <div id="sidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="index.html">Dashboard</a>
+    <a href="orders.html">Orders</a>
+    <a href="stock.html">Stock Management</a>
+    <a href="invoice.html">Reports/Invoices</a>
+  </div>
+  <span class="openbtn" onclick="openNav()">&#9776; Menu</span>
+
+  <!-- Main Content -->
+  <div class="content">
+    <h1>Orders</h1>
+    <table class="orders-table">
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Customer</th>
+          <th>Items</th>
+          <th>Total Price</th>
+          <th>Date Created</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="ordersTableBody">
+        <!-- Orders will be dynamically loaded here -->
+      </tbody>
+    </table>
+
+    <!-- Add New Order Icon -->
+    <div class="add-order-icon" onclick="openOrderForm()">+</div>
+  </div>
+
+  <!-- Modal for Adding New Order -->
+  <div id="newOrderModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeOrderForm()">&times;</span>
+      <h2>Create New Order</h2>
+      <form id="newOrderForm" onsubmit="createOrder(event)">
+        <label for="customerName">Customer Name:</label>
+        <input type="text" id="customerName" required>
+
+        <label for="itemSelect">Select Item:</label>
+        <select id="itemSelect" class="searchable-dropdown" required>
+          <option value="" disabled selected>Pick Item</option>
+          <!-- Items from stock will be dynamically added here -->
+        </select>
+        
+
+        <label for="itemQuantity">Quantity:</label>
+        <input type="number" id="itemQuantity" min="1" value="1" required>
+
+        <p>Total Price: ksh<span id="totalPrice">0.00</span></p>
+
+        <button type="submit">Confirm Order</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Popup for Order Details and Status Update -->
+  <div id="orderPopup" class="popup">
+    <div class="popup-content">
+      <span class="close" onclick="closePopup()">&times;</span>
+      <h2>Order Details</h2>
+      <p id="orderDetails"></p>
+      <label for="status">Order Status:</label>
+      <select id="orderStatus" onchange="updateStatus()">
+        <option value="pending">Pending</option>
+        <option value="in-queue">In Queue</option>
+        <option value="processed">Processed</option>
+        <option value="completed">Completed</option>
+      </select>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
